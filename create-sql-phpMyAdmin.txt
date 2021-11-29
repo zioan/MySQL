@@ -1,0 +1,79 @@
+//Create a sql database / tables manualy in phpMyAdmin -> SQL
+//using query
+//creating a table inside a database and manipulatind data 
+
+
+
+CREATE TABLE users(
+	id int(11) NOT null PRIMARY KEY AUTO_INCREMENT,
+  username VARCHAR(255) NOT null,
+  password VARCHAR(255) not null
+);
+
+
+//insert data in sql manualy
+
+INSERT INTO users (username, password) VALUES ('Mario', '123456')
+INSERT INTO users (username, password) VALUES ('Ana', '123456'), ('Raw', '123456'), ('Nik', '123456'), ('Robert', '123456')
+
+
+//select data
+
+//all
+SELECT * FROM users
+
+//Specific column (all users names)
+SELECT username FROM users
+
+//Specific row (all data for a specific user)
+SELECT * FROM users WHERE username = 'Ioan'
+SELECT * FROM users WHERE id = 23
+
+//Select on multiple conditions
+SELECT * FROM users WHERE username = 'Ioan' OR id = 4   //this will select both if exists
+SELECT * FROM users WHERE username = 'Ioan' AND id = 1  //this will select the row if both contitions matches
+
+
+//Update row
+UPDATE users
+SET username = 'Nik', password = 'newPass'
+WHERE id = 2
+
+
+//Delete entire table
+DELETE FROM users
+
+
+//Deleting a row inside the table //Best method
+DELETE FROM users
+WHERE id = 3
+
+//Delete conditionally OR
+DELETE FROM users
+WHERE id = 4 OR username = 'Ana'  //this delete the row that match id or usarname
+
+//Delete conditionally AND
+DELETE FROM users
+WHERE id = 4 AND username = 'Ana' //check for both to be true
+
+
+//Ordering 
+
+//descending (ascending is default (from 1 and up))
+SELECT * FROM users
+ORDER BY id DESC
+
+//ascending
+SELECT * FROM users
+ORDER BY id ASC
+
+//alfabetical order
+SELECT * FROM users
+ORDER BY username
+
+SELECT * FROM users
+ORDER BY username ASC
+
+//reverse alfabetical order
+SELECT * FROM users
+ORDER BY username DESC
