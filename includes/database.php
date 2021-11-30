@@ -10,9 +10,7 @@ $dbName = "phptutorial";
 $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
 //check if connection failed
-if($conn) {
-
-} else {
+if(!$conn) {
   die("Database connection failed!");
 }
 
